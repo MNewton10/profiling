@@ -1,0 +1,10 @@
+/Users/michaelnewton/Documents/CSC-411/Projects/um/rum/target/debug/deps/proc_macro2-e8c7163a97e2f48f.rmeta: /Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/lib.rs /Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/strnom.rs /Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/fallback.rs /Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/wrapper.rs
+
+/Users/michaelnewton/Documents/CSC-411/Projects/um/rum/target/debug/deps/libproc_macro2-e8c7163a97e2f48f.rlib: /Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/lib.rs /Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/strnom.rs /Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/fallback.rs /Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/wrapper.rs
+
+/Users/michaelnewton/Documents/CSC-411/Projects/um/rum/target/debug/deps/proc_macro2-e8c7163a97e2f48f.d: /Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/lib.rs /Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/strnom.rs /Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/fallback.rs /Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/wrapper.rs
+
+/Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/lib.rs:
+/Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/strnom.rs:
+/Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/fallback.rs:
+/Users/michaelnewton/.cargo/registry/src/index.crates.io-6f17d22bba15001f/proc-macro2-0.4.30/src/wrapper.rs:
