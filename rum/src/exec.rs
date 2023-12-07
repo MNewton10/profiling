@@ -56,7 +56,9 @@ impl UM {
     /// 
     /// * The value at the given index and offset
     pub fn get (&self, index: Umi, offset: Umi) -> Umi {
-        self.memvec[index as usize][offset as usize] as Umi
+        unsafe {
+            *self.memvec.get_unchecked(index as usize).get_unchecked(offset as usize) as Umi
+        }
     }
 
     /// A function that sets a value at a given index and offset
@@ -66,7 +68,9 @@ impl UM {
     /// * `index` - The index of the vector
     /// * `offset` - The offset within the vector to grab from
     pub fn set (&mut self, index: Umi, offset: Umi, value: Umi) {
-        self.memvec[index as usize][offset as usize] = value as Umi;
+        unsafe {
+            *self.memvec.get_unchecked_mut(index as usize).get_unchecked_mut(offset as usize) = value as Umi;
+        }
     }
 }
 
@@ -118,8 +122,6 @@ fn op(instruction: Umi) -> Option<Opcode> {
 
 pub fn execute(mut memory: UM) {
     let mut inst_ctr = 0;
-    let mut map_ctr = 0;
-    let mut unmap_ctr = 0;
     loop{
     // INVARIANT: inst_ptr is a valid index into memory
     // INVARIANT: memory[0] is the program
@@ -170,19 +172,15 @@ pub fn execute(mut memory: UM) {
         }
         Some(Opcode::Halt) => {
             eprintln!("Instructions: {}", inst_ctr);
-            eprintln!("Maps: {}", map_ctr);
-            eprintln!("Unmaps: {}", unmap_ctr);
             std::process::exit(0);
         }
         Some(Opcode::MapSeg) => {
             let rb = get(&RB, inst);
             let rc = get(&RC, inst);
-            map_ctr += 1;
             iomemfuns::map(rb, rc, &mut memory)
         }
         Some(Opcode::UnmapSeg) => {
             let rc = get(&RC, inst);
-            unmap_ctr += 1;
             iomemfuns::unmap(rc, &mut memory)
         }
         Some(Opcode::Output) => {
