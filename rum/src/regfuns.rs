@@ -1,5 +1,6 @@
+
 // This file contains all operations relating to register manipulation
-use crate::exec::{Umi};
+use crate::exec::Umi;
 
 /// A function that performs the conidional move operation
 /// 
@@ -46,8 +47,11 @@ pub fn nand (ra: usize, rb: usize, rc: usize, registers: &mut [Umi; 8]) {
 /// * `rb` - The index of the register to add
 /// * `rc` - The index of the register to add
 /// * `registers` - The array of registers
+
 pub fn add (ra: usize, rb: usize, rc: usize, registers: &mut [Umi; 8]) {
-    registers[ra] = ((registers[rb] as u64 + registers[rc] as u64) % (1_u64 << 32)) as u32;
+    //registers[ra] = ((registers[rb] as u64 + registers[rc] as u64) % (1_u64 << 32)) as u32;
+
+    registers[ra] = (((registers[rb] as u64).wrapping_add(registers[rc] as u64)) % (1_u64 << 32)) as u32;
 }
 
 /// A function that performs the multiplication operation
@@ -59,7 +63,10 @@ pub fn add (ra: usize, rb: usize, rc: usize, registers: &mut [Umi; 8]) {
 /// * `rc` - The index of the register to multiply
 /// * `registers` - The array of registers
 pub fn mult (ra: usize, rb: usize, rc: usize, registers: &mut [Umi; 8]) {
-    registers[ra] = ((registers[rb] as u64 * registers[rc] as u64) % (1_u64 << 32)) as u32;
+    //registers[ra] = ((registers[rb] as u64 * registers[rc] as u64) % (1_u64 << 32)) as u32;
+
+
+    registers[ra] = (((registers[rb] as u64).wrapping_mul(registers[rc] as u64)) % (1_u64 << 32)) as u32;
 }
 
 /// A function that performs the division operation
