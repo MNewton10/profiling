@@ -13,3 +13,4 @@ wrapping_arithmetic = "0.1.0"
 [profile.profiling]
 inherits = "release"
 debug = true
+lto = true

@@ -121,7 +121,7 @@ fn op(instruction: Umi) -> Option<Opcode> {
 }
 
 pub fn execute(mut memory: UM) {
-    let mut inst_ctr = 0;
+    //let mut inst_ctr = 0;
     loop{
     // INVARIANT: inst_ptr is a valid index into memory
     // INVARIANT: memory[0] is the program
@@ -171,7 +171,7 @@ pub fn execute(mut memory: UM) {
             regfuns::nand(ra, rb, rc, &mut memory.registers);
         }
         Some(Opcode::Halt) => {
-            eprintln!("Instructions: {}", inst_ctr);
+            //eprintln!("Instructions: {}", inst_ctr);
             std::process::exit(0);
         }
         Some(Opcode::MapSeg) => {
@@ -185,7 +185,7 @@ pub fn execute(mut memory: UM) {
         }
         Some(Opcode::Output) => {
             let rc = get(&RC, inst);
-            iomemfuns::output(rc, &memory.registers);
+            iomemfuns::output(rc, &mut memory);
         }
         Some(Opcode::Input) => {
             let rc = get(&RC, inst);
@@ -205,6 +205,6 @@ pub fn execute(mut memory: UM) {
             panic!("Invalid opcode")
         }
     }
-    inst_ctr += 1;
+    //inst_ctr += 1;
     }
 }

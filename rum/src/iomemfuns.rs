@@ -56,7 +56,7 @@ pub fn map (rb: usize, rc: usize, memory: &mut UM){
 /// * `memory` - The instance of memory to unmap from
 pub fn unmap (rc: usize, memory: &mut UM) {
     memory.memvec[memory.registers[rc] as usize] = Vec::new();
-    memory.free.push(memory.registers[rc].try_into().unwrap());
+    memory.free.push(memory.registers[rc] as Umi);
 }
 
 /// A function that performs the output operation
@@ -66,11 +66,8 @@ pub fn unmap (rc: usize, memory: &mut UM) {
 /// * `rc` - The index of the register to output
 /// * `registers` - The array of registers
 /// * `output` - The output buffer
-pub fn output (rc: usize, registers: &[Umi; 8]) {
-    if registers[rc] > 255 {
-        panic!("Invalid output value");
-    }
-    print!("{}", char::from_u32(registers[rc]).unwrap());
+pub fn output (rc: usize, memory: &mut UM) {
+    print!("{}", char::from_u32(memory.registers[rc]).unwrap());
 }
 
 /// A function that performs the input operation
