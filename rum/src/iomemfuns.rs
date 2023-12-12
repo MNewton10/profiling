@@ -43,7 +43,7 @@ pub fn map (rb: usize, rc: usize, memory: &mut UM){
     } else {
         // INVARIANT: If free is not empty, then the new segment is added to the vector at the value popped from the collection of free indices
         let index = memory.free.pop().unwrap();
-        memory.memvec[index as usize] = vec![0; val as usize];
+        memory.memvec[index as usize].resize(val as usize, 0);
         memory.registers[rb] = index;
     }
 }
